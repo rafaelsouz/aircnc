@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 
+const databaseConfig = require('./config/database');
+
 const socketio = require('socket.io');
 const http = require('http')
 
@@ -13,7 +15,7 @@ const app = express();
 const server = http.Server(app);
 const io = socketio(server);
 
-mongoose.connect('mongodb+srv://omnistack:omnistack@omnistack9-u4uat.mongodb.net/semana09?retryWrites=true&w=majority', {
+mongoose.connect(databaseConfig.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })

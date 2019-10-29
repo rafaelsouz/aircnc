@@ -5,6 +5,14 @@ export const styles = StyleSheet.create({
         margin: 30,
         marginTop: Platform.OS === 'android' ? 50 : 10,
     },
+    
+    datePicker: {
+        borderColor: '#ddd',
+        width: '100%',
+        marginBottom: 20,
+        borderRadius: 2,
+        borderWidth: 1
+    }, 
 
     label: {
         fontWeight:'bold',

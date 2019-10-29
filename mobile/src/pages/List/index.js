@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import socketio from 'socket.io-client'
-import { Alert, SafeAreaView, ScrollView, Image, AsyncStorage, View, Text } from 'react-native';
+import { Alert, SafeAreaView, ScrollView, Image, AsyncStorage, View, TouchableOpacity, Text } from 'react-native';
 
 import logo from '../../assets/logo.png'
 
@@ -8,9 +8,15 @@ import SpotList from '../../components/SpotList/index'
 
 import { styles } from './styles'
 
-export default function List(){
+export default function List({ navigation }){
 
     const [techs, setTechs] = useState([]);
+
+    async function handleLogout() {
+        AsyncStorage.clear();
+
+        navigation.navigate('Login');
+    }
 
     useEffect(()=>{
         AsyncStorage.getItem('user').then(user_id => {
@@ -19,7 +25,7 @@ export default function List(){
             })
 
             socket.on('booking_response', booking => {
-                Alert.alert(`Sua reservar em ${booking.spot.company} na ${booking.date} foi ${booking.approved ? 'APROVADA' : 'REJEITADA'}`)
+                Alert.alert(`Sua reserva na ${booking.spot.company} em ${booking.date} foi ${booking.approved ? 'APROVADA' : 'REJEITADA'}`)
             })
         })
     }, []);
@@ -37,6 +43,10 @@ export default function List(){
             <Image style = {styles.logo} source = {logo} />
             <ScrollView showsVerticalScrollIndicator={false}>
                 {techs.map(tech => <SpotList key={tech} tech={tech} /> )}
+
+                <TouchableOpacity onPress={handleLogout} style={ styles.button }>
+                    <Text style={styles.buttonText}>Logout</Text>
+                </TouchableOpacity>
 
             <View style={styles.space}/>
             
