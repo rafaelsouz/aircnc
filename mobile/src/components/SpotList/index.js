@@ -28,7 +28,7 @@ function SpotList({ tech, navigation }){
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Empresam que usam <Text style={styles.bold}>{tech}</Text></Text>
+            <Text style={styles.title}>Empresas que usam <Text style={styles.bold}>{tech}</Text></Text>
 
             <FlatList
                 style={styles.list}
@@ -42,7 +42,7 @@ function SpotList({ tech, navigation }){
                         <Text style={styles.company}>{item.company}</Text>
                         <Text style={styles.price}> {item.price ? `R$ ${item.price}/dia` : 'GRATUITO'}</Text>
                         <TouchableOpacity onPress={() => handleNavigate(item._id)} style={styles.button}>
-                            <Text style={styles.buttonText}>Solicitar reservar</Text>
+                            <Text style={styles.buttonText}>Solicitar reserva</Text>
                         </TouchableOpacity>
                     </View>
                 )} 

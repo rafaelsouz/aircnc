@@ -55,7 +55,7 @@ export default function New({ history }){
 
             />
 
-            <label htmlFor="techs">TECNOLOGIAS* <span>(Separadas por virgula)</span></label>
+            <label htmlFor="techs">TECNOLOGIAS*<span>(Separadas por virgula)</span></label>
             <input 
                 id="techs"
                 placeholder="Quais as tecnologias que usa empresa usa?"
@@ -63,7 +63,7 @@ export default function New({ history }){
                 onChange={event => setTechs(event.target.value)}
             />
 
-            <label htmlFor="price">VALOR DA DIARIA <span>(Em branco para GRATUITO)</span></label>
+            <label htmlFor="price">VALOR DA DIÁRIA <span>(Em branco para GRATUITO)</span></label>
             <input 
                 id="price"
                 placeholder="Valor cobrado por dia"
@@ -71,7 +71,7 @@ export default function New({ history }){
                 onChange={event => setPrice(event.target.value)}
             />
 
-            <button type="submit" className='btn'>Cadastra</button>
+            <button type="submit" className='btn'>Cadastrar</button>
         </form>
     )
 }
