@@ -58,7 +58,7 @@ export default function New({ history }){
             <label htmlFor="techs">TECNOLOGIAS*<span>(Separadas por virgula)</span></label>
             <input 
                 id="techs"
-                placeholder="Quais as tecnologias que usa empresa usa?"
+                placeholder="Quais as tecnologias que sua empresa usa?"
                 value={techs}
                 onChange={event => setTechs(event.target.value)}
             />
